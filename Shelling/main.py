@@ -5,6 +5,7 @@ import random
 
 
 class Shelling:
+    # Initialisation and creating two groups of people(agents)
     def __init__(self, population, size_of_grid, first_to_second, tolerance, steps):
         self.population = population
         self.size_of_grid = size_of_grid
@@ -31,7 +32,8 @@ class Shelling:
             )
 
     # Method for checking if agent is happy
-    # If ratio between number of neighbours
+    # If ratio between numbers of other-race-agents and number of all neighbours is higher than tolerance level
+    # then agent is not happy
     def is_happy(self, x, y):
 
         race = self.agents[(x, y)]
@@ -99,6 +101,7 @@ class Shelling:
         else:
             return True
 
+    # Method for checking and changing agent place if he is unhappy
     def update(self):
         for i in range(self.steps):
             self.old_agents = copy.deepcopy(self.agents)
@@ -112,10 +115,12 @@ class Shelling:
                     self.empty_houses.remove(empty_house)
                     self.empty_houses.append(agent)
                     n_changes += 1
+            # If there is nothing to change then it means that everybody is satisfied and other iterations doesn't need
             print(n_changes)
             if n_changes == 0:
                 break
 
+    # Method for showing the plot
     def show_plot(self):
         fig, ax = plt.subplots()
         agent_colors = {1: 'b', 2: 'g'}
@@ -130,10 +135,9 @@ class Shelling:
         plt.show()
 
 
-
-
-
-first = Shelling(105, 11, 0.5, 0.5, 1000000)
+# Example of 1_000 agents living in 35x35 grid and first is 1_000 * 0.3 = 300 and second is 1_000 - 300 = 700
+# There are 100 iterations by default and 0.25 is tolerance level of people
+first = Shelling(1_000, 35, 0.3, 0.25, 100)
 first.show_plot()
 first.update()
 first.show_plot()
