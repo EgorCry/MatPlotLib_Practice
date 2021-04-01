@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import random
 
 
+__all__ = ['Shelling']
+
+
 class Shelling:
     # Initialisation and creating two groups of people(agents)
     def __init__(self, population, size_of_grid, first_to_second, tolerance, steps):
@@ -135,9 +138,10 @@ class Shelling:
         plt.show()
 
 
-# Example of 1_000 agents living in 35x35 grid and first is 1_000 * 0.3 = 300 and second is 1_000 - 300 = 700
-# There are 100 iterations by default and 0.25 is tolerance level of people
-first = Shelling(1_000, 35, 0.3, 0.25, 100)
-first.show_plot()
-first.update()
-first.show_plot()
+def test():
+    # Example of 1_000 agents living in 35x35 grid and first is 1_000 * 0.3 = 300 and second is 1_000 - 300 = 700
+    # There are 100 iterations by default and 0.25 is tolerance level of people
+    first = Shelling(1_000, 35, 0.3, 0.25, 100)
+    first.show_plot()
+    first.update()
+    first.show_plot()
