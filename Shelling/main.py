@@ -8,7 +8,9 @@ __all__ = ['Shelling']
 
 
 class Shelling:
-    # Initialisation and creating two groups of people(agents)
+    """
+    Initialisation and creating two groups of people(agents)
+    """
     def __init__(self, population, size_of_grid, first_to_second, tolerance, steps):
         self.population = population
         self.size_of_grid = size_of_grid
@@ -34,10 +36,12 @@ class Shelling:
                 dict(zip(houses_by_race[i], [i + 1] * len(houses_by_race[i]))).items()
             )
 
-    # Method for checking if agent is happy
-    # If ratio between numbers of other-race-agents and number of all neighbours is higher than tolerance level
-    # then agent is not happy
     def is_happy(self, x, y):
+        """
+        Method for checking if agent is happy
+        if ratio between numbers of other-race-agents and number of all neighbours is higher than tolerance level
+        then agent is not happy
+        """
 
         race = self.agents[(x, y)]
 
@@ -104,8 +108,10 @@ class Shelling:
         else:
             return True
 
-    # Method for checking and changing agent place if he is unhappy
     def update(self):
+        """
+        Method for checking and changing agent place if he is unhappy
+        """
         for i in range(self.steps):
             self.old_agents = copy.deepcopy(self.agents)
             n_changes = 0
@@ -123,8 +129,10 @@ class Shelling:
             if n_changes == 0:
                 break
 
-    # Method for showing the plot
     def show_plot(self):
+        """
+        Method for showing the plot
+        """
         fig, ax = plt.subplots()
         agent_colors = {1: 'b', 2: 'g'}
         for agent in self.agents:
@@ -145,3 +153,6 @@ def test():
     first.show_plot()
     first.update()
     first.show_plot()
+
+
+test()

@@ -149,9 +149,9 @@ def plot_by_failed():
 
 # Examples how plots working
 
-# plot_by_activity_hours()
-# plot_activity_by_day()
-# plot_activity_by_group()
-# plot_by_right_answers()
-# plot_by_failed_and_success()
-# plot_by_failed()
+plot_by_activity_hours()
+plot_activity_by_day()
+plot_activity_by_group()
+plot_by_right_answers()
+plot_by_failed_and_success()
+plot_by_failed()

@@ -75,4 +75,4 @@ def plot_genre_per_year():
 
 # Example
 plot_game_per_year()
-# plot_genre_per_year()
+plot_genre_per_year()
